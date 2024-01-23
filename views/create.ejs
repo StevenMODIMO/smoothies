@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs') %>
+<header class="text-center font-bold text-green-400 text-3xl mt-10">
+  <h1>Create New Blog Post Now.</h1>
+</header>
+<form action="" class="flex flex-col p-3 items-center">
+  <div class="flex flex-col m-4">
+    <label for="title" class="font-light text-lg">Blog Title:</label>
+    <input
+      type="text"
+      id="title"
+      class="border border-green-400 rounded w-96 outline-none p-2"
+    />
+  </div>
+  <div class="flex flex-col m-4">
+    <label for="content" class="font-light text-lg">Blog Content:</label>
+    <textarea
+      name="content"
+      id="content"
+      class="border border-green-400 rounded w-96 h-36 outline-none p-2"
+    ></textarea>
+    <button
+      class="text-white bg-green-400 rounded-lg p-2 mx-auto m-2 font-bold"
+    >
+      Create Post +
+    </button>
+  </div>
+</form>
+<%- include('./partials/footer.ejs') %>

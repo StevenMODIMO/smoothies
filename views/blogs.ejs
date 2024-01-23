@@ -1,0 +1,12 @@
+<%- include('./partials/header.ejs') %>
+<ul class="flex flex-col mx-auto w-[1200px] m-4">
+  <% posts.forEach(post => { %>
+  <li>
+    <a href="<%= post._id %>" class="flex justify-between bg-green-200 p-3">
+      <span><%= post.title %></span>
+      <span><%= post.createdAt.toDateString() %></span>
+    </a>
+  </li>
+  <% }) %>
+</ul>
+<%- include('./partials/footer.ejs')%>

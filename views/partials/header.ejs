@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="<%= locals.description %>" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= locals.title %></title>
+  </head>
+  <body>
+    <nav class="flex justify-between font-bold p-3">
+      <div class="text-4xl text-green-500">
+        <a href="/">MongoBlog</a>
+      </div>
+      <ul class="flex gap-2 mx-3">
+        <form action="/search" class="">
+          <input
+            class="border border-green-400 rounded outline-none font-light p-2 w-80"
+            type="search"
+            id="searchInput"
+            name="searchTerm"
+            placeholder="Search Blog ..."
+          />
+        </form>
+        <li class="bg-green-400 rounded p-2">
+          <a href="/blog/create">Create +</a>
+        </li>
+        <li class="p-2">
+          <a href="/blog/read">Blogs</a>
+        </li>
+        <li class="p-2">Search</li>
+      </ul>
+    </nav>
+  </body>
+</html>
