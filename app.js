@@ -5,21 +5,19 @@ const expressLayout = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 
-
 app.use(express.static("public"));
 app.use(express.json());
-
 
 // Template Engine
 app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
-  console.log(req.method, req.path)
-  next()
-})
+  console.log(req.method, req.path);
+  next();
+});
 
 app.get("/", (request, response) => {
-  response.redirect("/blog")
+  response.redirect("/blog");
 });
 
 app.use("/blog", blogRoutes);

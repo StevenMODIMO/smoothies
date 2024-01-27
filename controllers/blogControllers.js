@@ -40,4 +40,18 @@ const getPosts = async (req, res) => {
   }
 };
 
-module.exports = { getPostTemplate, getHomeTemplate, addPost, getPosts };
+const getSinglePost = async (req, res) => {
+  const locals = {
+    title: `Blog with id: ${req.params.id}`,
+    description: `Now reading blog post with id: ${req.params.id}`,
+  };
+
+  try {
+    const post = await Post.findOne({ _id: req.params.id });
+    res.render("blog", { post,locals });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+module.exports = { getPostTemplate, getHomeTemplate, addPost, getPosts,getSinglePost };

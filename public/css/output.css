@@ -586,6 +586,11 @@ video {
   width: 1200px;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -600,6 +605,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .rounded {
@@ -667,6 +676,11 @@ video {
 
 .font-light {
   font-weight: 300;
+}
+
+.text-green-200 {
+  --tw-text-opacity: 1;
+  color: rgb(187 247 208 / var(--tw-text-opacity));
 }
 
 .text-green-400 {
