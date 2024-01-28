@@ -2,12 +2,13 @@
 <header class="text-center font-bold text-green-400 text-3xl mt-10">
   <h1>Create New Blog Post Now.</h1>
 </header>
-<form action="" class="flex flex-col p-3 items-center">
+<form id="form" class="flex flex-col p-3 items-center">
   <div class="flex flex-col m-4">
     <label for="title" class="font-light text-lg">Blog Title:</label>
     <input
-      type="text"
       id="title"
+      type="text"
+      name="title"
       class="border border-green-400 rounded w-96 outline-none p-2"
     />
   </div>
@@ -23,6 +24,19 @@
     >
       Create Post +
     </button>
+    <div
+      class="bg-green-400 p-2 rounded m-2 text-center text-white text-xl"
+      id="success"
+    >
+      
+    </div>
+    <div
+      class="bg-red-400 p-2 rounded m-2 text-center text-white text-xl"
+      id="error"
+    >
+      
+    </div>
   </div>
+  <script src="/js/script.js"></script>
 </form>
 <%- include('./partials/footer.ejs') %>

@@ -10,6 +10,7 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    ip: String,
   },
   { timestamps: true }
 );

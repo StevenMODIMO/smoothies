@@ -19,11 +19,15 @@ const getHomeTemplate = async (req, res) => {
 const addPost = async (req, res) => {
   const { title, content } = req.body;
 
+  if (!title || !content) {
+    return res.status(400).json({ error: "Empty fields detected." });
+  }
+
   try {
-    const newPost = await Post.create({ title, content });
+    const newPost = await Post.create({ title, content, ip: req.ip });
     res.status(200).json(newPost);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(400).json(error);
   }
 };
 
@@ -48,10 +52,40 @@ const getSinglePost = async (req, res) => {
 
   try {
     const post = await Post.findOne({ _id: req.params.id });
-    res.render("blog", { post,locals });
+    res.render("blog", { post, locals });
   } catch (error) {
     res.status(400).json(error);
   }
 };
 
-module.exports = { getPostTemplate, getHomeTemplate, addPost, getPosts,getSinglePost };
+const updateBlog = async (req, res) => {
+  const { title, content } = req.body;
+  try {
+    const update = await Post.findOneAndUpdate(
+      { _id: req.params.id },
+      { title, content }
+    );
+    res.status(200).json(update);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+const deleteBlog = async (req, res) => {
+  try {
+    const deletedBlog = await Post.findOneAndDelete({ _id: req.params.id });
+    res.status(200).json(deletedBlog);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+module.exports = {
+  getPostTemplate,
+  getHomeTemplate,
+  addPost,
+  getPosts,
+  getSinglePost,
+  updateBlog,
+  deleteBlog,
+};
