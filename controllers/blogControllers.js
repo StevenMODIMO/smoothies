@@ -1,4 +1,5 @@
 const Post = require("../models/postModels");
+const IP =require("ip")
 
 const getPostTemplate = async (req, res) => {
   const locals = {
@@ -22,9 +23,10 @@ const addPost = async (req, res) => {
   if (!title || !content) {
     return res.status(400).json({ error: "Empty fields detected." });
   }
+  const ip = IP.address();
 
   try {
-    const newPost = await Post.create({ title, content, ip: req.ip });
+    const newPost = await Post.create({ title, content, ip });
     res.status(200).json(newPost);
   } catch (error) {
     res.status(400).json(error);
