@@ -21,3 +21,19 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     document.getElementById("error").innerText = json.error;
   }
 });
+
+async function deletePost(id) {
+  document.getElementById("delete").addEventListener("click", async () => {
+    const res = await fetch(`/blog/delete/${id}`, {
+      method: "DELETE",
+    });
+
+    const json = await res.json();
+
+    if (res.ok) {
+      console.log(json);
+    } else {
+      console.log(json.error);
+    }
+  });
+}

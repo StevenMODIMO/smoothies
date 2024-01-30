@@ -1,12 +1,26 @@
 <%- include('./partials/header.ejs') %>
-<ul class="flex flex-col mx-auto w-[1200px] m-4">
+<ul class="flex flex-col mx-auto w-[1000px] m-4">
   <% posts.forEach(post => { %>
-  <li>
-    <a href="/blog/read/<%= post._id %>" class="flex justify-between bg-green-200 p-3">
+  <li class="flex justify-between">
+    <a
+      href="/blog/read/<%= post._id %>"
+      class="flex justify-between bg-green-200 p-3 m-2 w-[1000px]"
+    >
       <span><%= post.title %></span>
       <span><%= post.createdAt.toDateString() %></span>
     </a>
+    <div class="flex gap-2">
+      <button class="p-1 m-2 bg-yellow-500 w-20">Edit</button>
+      <button
+        class="p-1 m-2 bg-red-500 w-20"
+        id="delete"
+        onclick="deletePost('<%= post._id %>')"
+      >
+        Delete
+      </button>
+    </div>
   </li>
   <% }) %>
 </ul>
+<script src="/js/script.js"></script>
 <%- include('./partials/footer.ejs')%>
